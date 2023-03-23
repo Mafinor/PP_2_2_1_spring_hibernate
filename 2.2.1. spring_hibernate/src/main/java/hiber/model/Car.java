@@ -2,6 +2,8 @@ package hiber.model;
 
 
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 
 @Entity(name = "Car")
@@ -15,8 +17,8 @@ public class Car {
     @Column(name = "model")
     private String model;
 
-    @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @OneToOne(mappedBy = "car")
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     private User user;
 
     public Car() {

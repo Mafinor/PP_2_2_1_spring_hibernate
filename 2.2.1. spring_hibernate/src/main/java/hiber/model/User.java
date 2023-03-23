@@ -21,8 +21,8 @@ public class User {
    @Column(name = "email")
    private String email;
 
-   @OneToOne(mappedBy = "user")
-   @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+   @OneToOne
+   @JoinColumn(name = "car_id", referencedColumnName = "serial_number")
    private Car car;
 
 
